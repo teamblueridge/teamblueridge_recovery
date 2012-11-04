@@ -1256,7 +1256,7 @@ void show_advanced_menu()
                                 NULL
     };
 
-    static char* list[] = { "reboot recovery",
+    static char* list[] = { "f recovery",
                             "wipe dalvik cache",
                             "wipe battery stats",
                             "report error",
