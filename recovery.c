@@ -440,7 +440,7 @@ print_batt_cap()  {
 	now = time(0);
 	current = localtime(&now);
 	
-	sprintf(full_cap_a, "Battery Level: %i%% @ %02D:%02D", cap_i, current->tm_hour, current->tm_min);
+	sprintf(full_cap_a, "Battery: %i%% - Time: %02D:%02D", cap_i, current->tm_hour, current->tm_min);
 	strcpy(full_cap_s, full_cap_a);
 	
 	return full_cap_s;
