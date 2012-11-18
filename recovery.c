@@ -731,6 +731,7 @@ prompt_and_wait() {
         int chosen_item = get_menu_selection(headers, MENU_ITEMS, 0, 0);
         ui_menu_level = 1;
         ui_root_menu = 0;
+        ui_set_background(BACKGROUND_ICON_LOGO);
         // allow_display_toggle = 0;
 
         // device-specific code may take some action here.  It may
