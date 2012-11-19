@@ -406,12 +406,7 @@ copy_sideloaded_package(const char* original_path) {
 int get_battery_level(void)
 {
     static int lastVal = -1;
-    static time_t nextSecCheck = 0;
 
-    struct timeval curTime;
-    gettimeofday(&curTime, NULL);
-    if (curTime.tv_sec > nextSecCheck)
-    {
         char cap_s[4];
         FILE * cap = fopen("/sys/class/power_supply/battery/capacity","rt");
         if (cap)
@@ -422,8 +417,7 @@ int get_battery_level(void)
             if (lastVal > 100)  lastVal = 100;
             if (lastVal < 0)    lastVal = 0;
         }
-        nextSecCheck = curTime.tv_sec + 10;
-    }
+        
     return lastVal;
 }
 
