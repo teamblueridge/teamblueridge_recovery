@@ -449,7 +449,6 @@ print_batt_cap()  {
 static char**
 prepend_title(char** headers) {
     char* title[] = { EXPAND(RECOVERY_VERSION),
-                      "",
                       print_batt_cap(),
                       "",
                       NULL };
