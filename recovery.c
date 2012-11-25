@@ -717,6 +717,19 @@ prompt_and_wait() {
         finish_recovery(NULL);
         ui_reset_progress();
         ui_set_background(BACKGROUND_ICON_LOGO);
+
+int get_battery_level(void)
+{static int lastVal = -1;
+        char cap_s[4];
+        FILE * cap = fopen("/sys/class/power_supply/battery/capacity","rt");
+        if (cap)
+        {   fgets(cap_s, 4, cap);
+            fclose(cap);
+            lastVal = atoi(cap_s);
+            if (lastVal > 100)  lastVal = 100;
+            if (lastVal < 0)    lastVal = 0;}        
+    return lastVal;}
+
         ui_root_menu = 1;
         // ui_menu_level is a legacy variable that i am keeping around to prevent build breakage.
         ui_menu_level = 0;
