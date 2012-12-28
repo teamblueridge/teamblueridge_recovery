@@ -127,10 +127,6 @@ static volatile char key_pressed[KEY_MAX + 1];
 
 static void update_screen_locked(void);
 
-#ifdef BOARD_TOUCH_RECOVERY
-#include "../../vendor/koush/recovery/touch.c"
-#endif
-
 // Return the current time as a double (including fractions of a second).
 static double now() {
     struct timeval tv;
@@ -235,8 +231,7 @@ static void draw_text_line(int row, const char* t) {
 //#define MENU_TEXT_COLOR 255, 160, 49, 255
 #define MENU_TEXT_COLOR 0, 191, 255, 255
 #define NORMAL_TEXT_COLOR 200, 200, 200, 255
-//#define HEADER_TEXT_COLOR 0, 191, 255, 255
-#define HEADER_TEXT_COLOR NORMAL_TEXT_COLOR
+#define HEADER_TEXT_COLOR MENU_TEXT_COLOR
 
 // Redraw everything on the screen.  Does not flip pages.
 // Should only be called with gUpdateMutex locked.
